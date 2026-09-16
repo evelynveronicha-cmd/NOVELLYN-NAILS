@@ -1,0 +1,1580 @@
+<!DOCTYPE html>
+
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+<title>NOVELLYN | Salon Kuku & Seni</title>
+<style>
+
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@400;500;600&display=swap');
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+
+    html {
+        scroll-behavior: smooth;
+    }
+
+
+    body {
+        font-family: "DM Sans", sans-serif;
+        background: #fbf5f1;
+        color: #35171a;
+    }
+
+
+    img {
+        max-width: 100%;
+        display: block;
+    }
+
+
+    button {
+        font-family: inherit;
+    }
+    .container {
+        width: 90%;
+        max-width: 1150px;
+        margin: auto;
+    }
+    .header {
+        background: #430810;
+        padding: 20px 0;
+        color: white;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+    }
+    .navbar {
+        width: 90%;
+        max-width: 1150px;
+        margin: auto;
+
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+    .logo {
+        color: white;
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        cursor: pointer;
+        letter-spacing: 1px;
+    }
+    .logo span {
+        display: block;
+        color: #d5a95f;
+        font-family: "DM Sans", sans-serif;
+        font-size: 8px;
+        letter-spacing: 3px;
+        margin-top: 5px;
+    }
+    .menu {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+    }
+    .menu a {
+        color: white;
+        font-size: 11px;
+        text-transform: uppercase;
+        cursor: pointer;
+        transition: 0.3s;
+    }
+    .menu a:hover,
+    .menu a.active {
+        color: #d5a95f;
+    }
+    .header-btn {
+        border: 1px solid #9b6c38;
+        padding: 10px 15px;
+        color: #d5a95f !important;
+    }
+    .page {
+        display: none;
+    }
+
+
+    .page.active-page {
+        display: block;
+        animation: muncul 0.5s ease;
+    }
+
+
+    @keyframes muncul {
+
+        from {
+            opacity: 0;
+            transform: translateY(15px);
+        }
+
+        to {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+    }
+
+    .hero {
+        min-height: 620px;
+        background: #430810;
+        color: white;
+
+        display: flex;
+        align-items: center;
+    }
+
+
+    .hero-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 65px;
+        align-items: center;
+    }
+
+
+    .hero-label {
+        color: #d5a95f;
+        font-size: 11px;
+        letter-spacing: 3px;
+    }
+
+
+    .hero-title {
+        font-family: "Playfair Display", serif;
+        font-size: 55px;
+        font-weight: 400;
+        line-height: 1.1;
+        margin: 18px 0;
+    }
+
+
+    .hero-text {
+        color: #d7c5c1;
+        line-height: 1.8;
+        font-size: 14px;
+        max-width: 500px;
+    }
+
+
+    .hero-image img {
+        width: 100%;
+        height: 400px;
+        object-fit: cover;
+        border-radius: 10px;
+    }
+    .btn {
+        display: inline-block;
+        background: #5b0c17;
+        color: white;
+        padding: 14px 22px;
+        margin-top: 25px;
+        margin-right: 8px;
+        font-size: 11px;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        cursor: pointer;
+        border: none;
+        transition: 0.3s;
+    }
+
+
+    .btn:hover {
+        background: #79101d;
+        transform: translateY(-2px);
+    }
+
+
+    .btn-outline {
+        background: transparent;
+        border: 1px solid #d5a95f;
+        color: #d5a95f;
+    }
+    .section {
+        padding: 80px 0;
+    }
+    .section-title {
+        font-family: "Playfair Display", serif;
+        font-size: 38px;
+        font-weight: 400;
+        margin-bottom: 15px;
+        text-align: center;
+    }
+
+
+    .section-sub {
+        text-align: center;
+        color: #7c6867;
+        max-width: 700px;
+        margin: auto;
+        line-height: 1.8;
+    }
+    .page-header {
+        background: #430810;
+        color: white;
+        text-align: center;
+        padding: 80px 20px;
+    }
+
+
+    .page-header h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 48px;
+        font-weight: 400;
+    }
+
+
+    .page-header p {
+        margin-top: 12px;
+        color: #d9c7c5;
+        font-size: 14px;
+    }
+    .about-home {
+        text-align: center;
+    }
+    .service-grid {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+
+    .service {
+        background: white;
+        border: 1px solid #eee3dd;
+        padding: 30px;
+        border-radius: 10px;
+        transition: 0.3s;
+    }
+
+
+    .service:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 30px rgba(53, 23, 26, 0.08);
+    }
+
+
+    .service h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 24px;
+        margin-bottom: 12px;
+    }
+
+
+    .service p {
+        color: #7c6867;
+        line-height: 1.8;
+        font-size: 14px;
+    }
+
+
+    .service-price {
+        color: #b98b43;
+        margin-top: 18px;
+        display: block;
+        font-weight: bold;
+    }
+
+
+    .gallery-grid {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin-top: 40px;
+    }
+
+
+    .gallery-item {
+        overflow: hidden;
+        border-radius: 10px;
+    }
+
+
+    .gallery-grid img {
+        width: 100%;
+        height: 280px;
+        object-fit: cover;
+        transition: 0.4s;
+    }
+
+
+    .gallery-grid img:hover {
+        transform: scale(1.08);
+    }
+
+    .price-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin-top: 40px;
+    }
+
+
+    .price-card {
+        background: white;
+        border: 1px solid #ddc18f;
+        padding: 30px;
+        border-radius: 10px;
+    }
+
+
+    .price-card h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 27px;
+        margin-bottom: 20px;
+        text-align: center;
+    }
+
+
+    .price-line {
+        display: flex;
+        justify-content: space-between;
+        gap: 15px;
+        padding: 14px 0;
+        border-bottom: 1px solid #eee;
+        font-size: 13px;
+    }
+
+
+    .price-line b {
+        color: #8b5b2c;
+        white-space: nowrap;
+    }
+    .team-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 25px;
+        margin-top: 40px;
+    }
+
+
+    .member {
+        background: white;
+        padding-bottom: 20px;
+        border-radius: 10px;
+        overflow: hidden;
+    }
+
+
+    .member img {
+        width: 100%;
+        height: 330px;
+        object-fit: cover;
+    }
+
+
+    .member h3 {
+        font-family: "Playfair Display", serif;
+        font-size: 23px;
+        margin: 20px 20px 8px;
+    }
+
+
+    .member p {
+        color: #7c6867;
+        line-height: 1.7;
+        margin: 0 20px;
+        font-size: 14px;
+    }
+    .booking {
+        padding: 80px 0;
+    }
+    .form-card {
+        background: white;
+        max-width: 800px;
+        margin: auto;
+        padding: 40px;
+        border-radius: 12px;
+        border: 1px solid #dfc69e;
+    }
+
+
+    .form-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+    }
+
+
+    .field {
+        display: flex;
+        flex-direction: column;
+        gap: 8px;
+    }
+
+
+    .full {
+        grid-column: 1 / -1;
+    }
+
+
+    label {
+        font-size: 12px;
+        font-weight: bold;
+    }
+
+
+    input,
+    select {
+        padding: 14px;
+        border: 1px solid #ddd;
+        outline: none;
+        border-radius: 5px;
+        font-family: inherit;
+    }
+
+
+    input:focus,
+    select:focus {
+        border-color: #b98b43;
+    }
+
+
+    .submit {
+        margin-top: 25px;
+        padding: 15px 30px;
+        background: #5b0c17;
+        color: white;
+        border: none;
+        cursor: pointer;
+        font-family: inherit;
+        transition: 0.3s;
+    }
+
+
+    .submit:hover {
+        background: #79101d;
+    }
+    .success-page {
+        min-height: 70vh;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 60px 20px;
+    }
+    .success-card {
+        background: white;
+        width: 100%;
+        max-width: 600px;
+        text-align: center;
+        padding: 60px 35px;
+        border-radius: 15px;
+        border: 1px solid #dfc69e;
+        box-shadow: 0 10px 30px rgba(53, 23, 26, 0.08);
+    }
+    .success-icon {
+        width: 70px;
+        height: 70px;
+        margin: 0 auto 25px;
+
+        border-radius: 50%;
+
+        background: #5b0c17;
+        color: #d5a95f;
+
+        display: flex;
+        justify-content: center;
+        align-items: center;
+
+        font-size: 32px;
+    }
+    .success-card h1 {
+        font-family: "Playfair Display", serif;
+        font-size: 35px;
+        font-weight: 400;
+        margin-bottom: 15px;
+    }
+    .success-card p {
+        color: #7c6867;
+        line-height: 1.8;
+    }
+    .footer {
+        background: #430810;
+        color: white;
+        padding: 45px 20px;
+        text-align: center;
+    }
+    .footer h2 {
+        font-family: "Playfair Display", serif;
+        font-weight: 400;
+        font-size: 26px;
+    }
+    .footer p {
+        color: #d6c5c2;
+        margin-top: 10px;
+        font-size: 13px;
+    }
+    @media (max-width: 900px) {
+
+        .navbar {
+            flex-direction: column;
+            gap: 20px;
+        }
+
+        .menu {
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .hero-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .hero-title {
+            font-size: 45px;
+        }
+
+        .price-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .team-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+    }
+
+    @media (max-width: 600px) {
+
+        .menu {
+            gap: 12px;
+        }
+
+        .menu a {
+            font-size: 9px;
+        }
+
+        .hero-title {
+            font-size: 37px;
+        }
+
+        .page-header h1 {
+            font-size: 38px;
+        }
+
+        .section-title {
+            font-size: 30px;
+        }
+
+        .service-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .gallery-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .form-grid {
+            grid-template-columns: 1fr;
+        }
+
+        .full {
+            grid-column: auto;
+        }
+
+        .form-card {
+            padding: 25px;
+        }
+
+    }
+
+</style>
+```
+
+</head>
+
+<body>
+
+<header class="header">
+
+```
+<div class="navbar">
+    <div class="logo" onclick="showPage('home')">
+
+        NOVELLYN
+
+        <span>
+            SALON KUKU & SENI
+        </span>
+
+    </div>
+
+    <nav class="menu">
+
+        <a
+            class="nav-link active"
+            onclick="showPage('home', this)"
+        >
+            Home
+        </a>
+
+
+        <a
+            class="nav-link"
+            onclick="showPage('layanan', this)"
+        >
+            Layanan
+        </a>
+
+
+        <a
+            class="nav-link"
+            onclick="showPage('galeri', this)"
+        >
+            Galeri
+        </a>
+
+
+        <a
+            class="nav-link"
+            onclick="showPage('harga', this)"
+        >
+            Harga
+        </a>
+
+
+        <a
+            class="nav-link"
+            onclick="showPage('tim', this)"
+        >
+            Tim
+        </a>
+
+
+        <a
+            class="nav-link header-btn"
+            onclick="showPage('reservasi', this)"
+        >
+            Reservasi
+        </a>
+
+    </nav>
+
+
+</div>
+```
+
+</header>
+
+<div id="home" class="page active-page">
+<section class="hero">
+
+    <div class="container hero-grid">
+
+
+        <div>
+
+            <p class="hero-label">
+                DIMANA KERAJINAN BERTEMU SENI
+            </p>
+
+
+            <h1 class="hero-title">
+
+                Bespoke Nail Artistry
+                for the Discerning
+
+            </h1>
+
+
+            <p class="hero-text">
+
+                Nikmati pengalaman perawatan kuku mewah
+                dengan desain yang dibuat khusus sesuai
+                dengan gaya dan kepribadian Anda.
+
+            </p>
+
+
+            <button
+                class="btn"
+                onclick="showPage('reservasi')"
+            >
+                Reservasi Sekarang
+            </button>
+
+
+            <button
+                class="btn btn-outline"
+                onclick="showPage('galeri')"
+            >
+                Lihat Galeri
+            </button>
+            <a href="https://maps.app.goo.gl/dtHyUboyctWL9xTZ8">
+                <button class="btn btn-outline">
+                location
+            </button> </a>
+
+        </div>
+
+
+        <div class="hero-image">
+
+            <img
+                src=" blue.jpg"
+                alt="Nail Art NOVELLYN"
+            >
+
+        </div>
+
+
+    </div>
+
+</section>
+
+<section class="section">
+
+    <div class="container about-home">
+
+
+        <h2 class="section-title">
+
+            Dimana Kerajinan
+            Bertemu Kecantikan
+
+        </h2>
+
+
+        <p class="section-sub">
+
+            NOVELLYN merupakan salon kuku yang
+            menggabungkan kreativitas, ketelitian,
+            kebersihan, dan desain modern untuk
+            menciptakan nail art yang unik serta
+            sesuai dengan kepribadian setiap pelanggan.
+
+        </p>
+
+
+        <button
+            class="btn"
+            onclick="showPage('layanan')"
+        >
+            Lihat Layanan
+        </button>
+
+
+    </div>
+
+</section>
+```
+
+</div>
+
+<div id="layanan" class="page">
+
+```
+<section class="page-header">
+
+    <h1>
+        Layanan Kami
+    </h1>
+
+    <p>
+        Perawatan premium untuk kuku yang indah.
+    </p>
+
+</section>
+
+
+
+<section class="section">
+
+    <div class="container">
+
+
+        <h2 class="section-title">
+
+            Pilih Perawatan Anda
+
+        </h2>
+
+
+        <p class="section-sub">
+
+            Kami menyediakan berbagai layanan
+            perawatan kuku dan nail art premium.
+
+        </p>
+
+
+
+        <div class="service-grid">
+
+
+            <div class="service">
+
+                <h3>
+                    Ekstensi Gel
+                </h3>
+
+                <p>
+
+                    Struktur kuku menggunakan gel premium
+                    untuk menghasilkan kuku yang cantik,
+                    kuat dan tahan lama.
+
+                </p>
+
+                <span class="service-price">
+                    Mulai Rp.120.000
+                </span>
+
+            </div>
+
+
+
+            <div class="service">
+
+                <h3>
+                    Nail Art Kustom
+                </h3>
+
+                <p>
+
+                    Nail art yang dibuat khusus sesuai
+                    dengan keinginan, gaya dan kreativitas
+                    Anda.
+
+                </p>
+
+                <span class="service-price">
+                    Mulai Rp.85.000
+                </span>
+
+            </div>
+
+            <div class="service">
+
+                <h3>
+                    Manikur Kecantikan
+                </h3>
+
+                <p>
+
+                    Perawatan kuku dan tangan agar
+                    tetap sehat, bersih, rapi dan
+                    terlihat cantik.
+
+                </p>
+
+                <span class="service-price">
+                    Mulai Rp.95.000
+                </span>
+
+            </div>
+
+
+
+            <div class="service">
+
+                <h3>
+                    Pedikur & Spa
+                </h3>
+
+                <p>
+
+                    Perawatan kaki lengkap dengan
+                    scrub dan pengalaman spa untuk
+                    membuat kaki terasa lebih nyaman.
+
+                </p>
+
+                <span class="service-price">
+                    Mulai Rp.85.000
+                </span>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+```
+
+</div>
+
+<div id="galeri" class="page">
+
+```
+<section class="page-header">
+
+    <h1>
+        Galeri Nail Art
+    </h1>
+
+    <p>
+        Beberapa hasil karya NOVELLYN.
+    </p>
+
+</section>
+
+
+
+<section class="section">
+
+    <div class="container">
+
+
+        <h2 class="section-title">
+
+            Our Nail Collection
+
+        </h2>
+
+
+        <p class="section-sub">
+
+            Setiap desain dibuat dengan ketelitian,
+            kreativitas dan perhatian pada setiap detail.
+
+        </p>
+
+
+
+        <div class="gallery-grid">
+
+
+            <div class="gallery-item">
+
+                <img
+                    src=" white.elegant.jpg"
+                    alt="White Elegant Nails"
+                >
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src=" Red.jpg"
+                    alt="Red Nails"
+                >
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="Celestial Pink Butterfly Nails ✨🦋.jpg"
+                    alt="Pink Butterfly Nails"
+                >
+
+            </div>
+
+
+
+            <div class="gallery-item">
+
+                <img
+                    src="red bunga.jpg"
+                    alt="Floral Nail Art"
+                >
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+```
+
+</div>
+
+<div id="harga" class="page">
+
+```
+<section class="page-header">
+
+    <h1>
+        Daftar Harga
+    </h1>
+
+    <p>
+        Pilih paket perawatan sesuai kebutuhan Anda.
+    </p>
+
+</section>
+
+
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="price-grid">
+
+            <div class="price-card">
+
+                <h3>
+                    Dasar
+                </h3>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Manikur Shellac
+                    </span>
+
+                    <b>
+                        Rp.65.000
+                    </b>
+
+                </div>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Pedikur
+                    </span>
+
+                    <b>
+                        Rp.85.000
+                    </b>
+
+                </div>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Extension Kuku
+                    </span>
+
+                    <b>
+                        Rp.90.000
+                    </b>
+
+                </div>
+
+
+            </div>
+
+            <div class="price-card">
+
+                <h3>
+                    Premium
+                </h3>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Extension Full
+                    </span>
+
+                    <b>
+                        Rp.120.000
+                    </b>
+
+                </div>
+
+
+                <div class="price-line">
+
+                    <span>
+                        French Nail
+                    </span>
+
+                    <b>
+                        Rp.140.000
+                    </b>
+
+                </div>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Velvet Matte
+                    </span>
+
+                    <b>
+                        Rp.115.000
+                    </b>
+
+                </div>
+
+
+            </div>
+
+            <div class="price-card">
+
+                <h3>
+                    Mewah
+                </h3>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Set Avant-Garde
+                    </span>
+
+                    <b>
+                        Rp.100.000
+                    </b>
+
+                </div>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Lukis Tangan
+                    </span>
+
+                    <b>
+                        Rp.180.000
+                    </b>
+
+                </div>
+
+
+                <div class="price-line">
+
+                    <span>
+                        Swarovski
+                    </span>
+
+                    <b>
+                        Rp.195.000
+                    </b>
+
+                </div>
+
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+```
+
+</div>
+
+<div id="tim" class="page">
+
+```
+<section class="page-header">
+
+    <h1>
+        Temui Nailist Kami
+    </h1>
+
+    <p>
+        Tim profesional NOVELLYN.
+    </p>
+
+</section>
+
+
+
+<section class="section">
+
+    <div class="container">
+
+
+        <div class="team-grid">
+
+            <div class="member">
+
+                <img
+                    src="pink.nail.jpg"
+                    alt="Chloe Fontaine"
+                >
+
+
+                <h3>
+                    Chloe Fontaine
+                </h3>
+
+
+                <p>
+
+                    Spesialis nail art dengan
+                    pengalaman dalam desain bunga
+                    dan detail yang elegan.
+
+                </p>
+
+            </div>
+
+            <div class="member">
+
+                <img
+                    src="red bunga.jpg"
+                    alt="Yuki Takanaka"
+                >
+
+
+                <h3>
+                    Yuki Takanaka
+                </h3>
+
+
+                <p>
+
+                    Menggabungkan desain modern,
+                    minimalis dan kreatif dalam
+                    setiap karya nail art.
+
+                </p>
+
+            </div>
+
+            <div class="member">
+
+                <img
+                    src="blue bunga.jpg"
+                    alt="Amelie Dupont"
+                >
+
+
+                <h3>
+                    Amelie Dupont
+                </h3>
+
+
+                <p>
+
+                    Spesialis lukisan tangan dan
+                    desain detail dengan gaya
+                    unik serta artistik.
+
+                </p>
+
+            </div>
+
+
+        </div>
+
+
+    </div>
+
+</section>
+```
+
+</div>
+
+<div id="reservasi" class="page">
+
+```
+<section class="page-header">
+
+    <h1>
+        Booking Sekarang
+    </h1>
+
+    <p>
+        Reservasikan jadwal nail art Anda.
+    </p>
+
+</section>
+
+<section class="booking">
+
+    <div class="container">
+
+
+        <form
+            class="form-card"
+            onsubmit="booking(event)"
+        >
+
+
+            <div class="form-grid">
+                <div class="field full">
+
+                    <label>
+                        Nama Lengkap
+                    </label>
+
+                    <input
+                        type="text"
+                        id="nama"
+                        placeholder="Masukkan nama lengkap"
+                        required
+                    >
+
+                </div>
+                <div class="field full">
+
+                    <label>
+                        Email
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Masukkan email"
+                        required
+                    >
+
+                </div>
+
+                <div class="field full">
+
+                    <label>
+                        Pilih Layanan
+                    </label>
+
+                    <select id="pilihanLayanan">
+
+                        <option>
+                            Ekstensi Gel
+                        </option>
+
+                        <option>
+                            Nail Art Kustom
+                        </option>
+
+                        <option>
+                            Manikur Kecantikan
+                        </option>
+
+                        <option>
+                            Pedikur & Spa
+                        </option>
+
+                    </select>
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        Tanggal
+                    </label>
+
+                    <input
+                        type="date"
+                        id="tanggal"
+                        required
+                    >
+
+                </div>
+
+                <div class="field">
+
+                    <label>
+                        Waktu
+                    </label>
+
+                    <input
+                        type="time"
+                        id="waktu"
+                        required
+                    >
+
+                </div>
+
+
+            </div>
+
+
+
+            <button
+                type="submit"
+                class="submit"
+            >
+
+                Kirim Reservasi
+
+            </button>
+
+
+        </form>
+
+
+    </div>
+
+</section>
+```
+
+</div>
+<div id="berhasil" class="page">
+
+```
+<section class="success-page">
+
+
+    <div class="success-card">
+
+
+        <div class="success-icon">
+
+            ✓
+
+        </div>
+
+
+        <h1>
+            Reservasi Berhasil!
+        </h1>
+
+
+        <p id="successText">
+
+            Terima kasih! Reservasi Anda telah
+            berhasil dikirim.
+
+        </p>
+
+        <button
+            class="btn"
+            onclick="showPage('home')"
+        >
+
+            Kembali ke Home
+
+        </button>
+
+
+    </div>
+
+
+</section>
+</div>
+
+<footer class="footer">
+
+```
+<h2>
+    NOVELLYN
+</h2>
+
+
+<p>
+    Salon Kuku & Seni
+</p>
+
+
+<p>
+    © 2026 NOVELLYN Salon.
+    Hak Cipta Dilindungi.
+</p>
+</footer>
+<script>
+    function showPage(pageId, menuItem) {
+
+        let pages =
+            document.querySelectorAll(".page");
+
+        pages.forEach(function(page) {
+
+            page.classList.remove(
+                "active-page"
+            );
+
+        });
+
+        let selectedPage =
+            document.getElementById(pageId);
+
+
+        if (selectedPage) {
+
+            selectedPage.classList.add(
+                "active-page"
+            );
+
+        }
+
+        window.scrollTo({
+            top: 0,
+            behavior: "smooth"
+        });
+
+        let menuItems =
+            document.querySelectorAll(
+                ".nav-link"
+            );
+
+        menuItems.forEach(function(item) {
+
+            item.classList.remove(
+                "active"
+            );
+
+        });
+
+        if (menuItem) {
+
+            menuItem.classList.add(
+                "active"
+            );
+
+        }
+
+    }
+
+    function booking(event) {
+
+        event.preventDefault();
+
+        let nama =
+            document
+                .getElementById("nama")
+                .value;
+
+        let layanan =
+            document
+                .getElementById(
+                    "pilihanLayanan"
+                )
+                .value;
+
+        document
+            .getElementById("successText")
+            .innerHTML =
+
+            "Terima kasih, <b>" +
+            nama +
+            "</b>!<br><br>" +
+
+            "Reservasi Anda untuk layanan <b>" +
+            layanan +
+            "</b> telah berhasil dikirim. " +
+
+            "Kami akan menunggu kedatangan Anda di NOVELLYN.";
+
+
+        event.target.reset();
+
+        showPage("berhasil");
+
+    }
+</script>
+
+</body>
+</html>
